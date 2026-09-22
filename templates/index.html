@@ -69,6 +69,28 @@
             color: #555;
         }
 
+        /* QR Code */
+        .qr-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .qr-section h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -123,6 +145,15 @@
             <p>結合人工智慧工具，提升學習效率與創作能力。</p>
         </div>
 
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-section">
+        <h2>📱 QR Code</h2>
+        <p>掃描 QR Code 查看我的學習歷程</p>
+        <img src="/static/images/qr_code.jpg"
+             alt="學習歷程 QR Code"
+             class="qr-code">
     </div>
 </div>
 
