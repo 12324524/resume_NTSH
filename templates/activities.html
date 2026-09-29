@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<title>我的高中生活｜高三學生自我介紹</title>
+<title>課外活動｜我的高中生活</title>
 
 <style>
     * {
@@ -15,22 +16,19 @@
         padding: 0;
     }
 
-    html {
-        scroll-behavior: smooth;
-    }
-
     body {
         font-family: "Noto Sans TC", Arial, sans-serif;
-        background-color: #f5f7fa;
+        background-color: #f4f7f5;
         color: #333;
         line-height: 1.8;
     }
 
+    /* 頁首 */
     header {
         background: linear-gradient(135deg, #4CAF50, #2e7d32);
         color: white;
         text-align: center;
-        padding: 80px 20px;
+        padding: 70px 20px;
     }
 
     header h1 {
@@ -39,16 +37,17 @@
     }
 
     header p {
-        font-size: 20px;
+        font-size: 19px;
     }
 
+    /* 導覽列 */
     nav {
         background-color: white;
         padding: 15px;
         text-align: center;
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 10;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -63,96 +62,111 @@
         color: #4CAF50;
     }
 
-    section {
-        max-width: 1000px;
+    /* 主要內容 */
+    main {
+        max-width: 1100px;
         margin: 50px auto;
         padding: 0 20px;
     }
 
-    section h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #2e7d32;
-        font-size: 30px;
-    }
-
-    .card {
+    .intro {
         background-color: white;
         padding: 30px;
         border-radius: 15px;
-        margin-bottom: 25px;
+        margin-bottom: 40px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        text-align: center;
+    }
+
+    .intro h2 {
+        color: #2e7d32;
+        margin-bottom: 15px;
+        font-size: 30px;
+    }
+
+    /* 活動卡片 */
+    .activities {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .activity-card {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .activity-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .activity-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .activity-content {
+        padding: 25px;
+    }
+
+    .activity-content h3 {
+        color: #2e7d32;
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+
+    .activity-content p {
+        color: #555;
+    }
+
+    /* 經驗區 */
+    .experience {
+        margin-top: 50px;
+        background-color: white;
+        padding: 35px;
+        border-radius: 15px;
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
     }
 
-    .profile {
-        text-align: center;
-    }
-
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
+    .experience h2 {
+        color: #2e7d32;
         margin-bottom: 20px;
-        border: 5px solid #4CAF50;
     }
 
-    .profile h3 {
-        font-size: 28px;
-        margin-bottom: 10px;
+    .experience ul {
+        padding-left: 25px;
     }
 
-    .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
+    .experience li {
+        margin-bottom: 12px;
     }
 
-    .skill {
-        background-color: #f1f8e9;
-        padding: 20px;
-        border-radius: 12px;
+    /* 回首頁按鈕 */
+    .back-home {
         text-align: center;
+        margin: 45px 0;
     }
 
-    .skill h3 {
-        color: #2e7d32;
-        margin-bottom: 10px;
-    }
-
-    .activity {
-        border-left: 5px solid #4CAF50;
-        padding-left: 20px;
-        margin-bottom: 25px;
-    }
-
-    .activity h3 {
-        color: #2e7d32;
-    }
-
-    .future {
-        text-align: center;
-        background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-    }
-
-    .contact {
-        text-align: center;
-    }
-
-    .contact a {
+    .back-home a {
         display: inline-block;
-        margin: 10px;
-        padding: 10px 20px;
         background-color: #4CAF50;
         color: white;
-        text-decoration: none;
+        padding: 12px 28px;
         border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
     }
 
-    .contact a:hover {
+    .back-home a:hover {
         background-color: #2e7d32;
     }
 
+    /* 頁尾 */
     footer {
         background-color: #333;
         color: white;
@@ -161,18 +175,20 @@
         margin-top: 50px;
     }
 
-    @media (max-width: 600px) {
+    /* 手機版 */
+    @media (max-width: 800px) {
+
+        .activities {
+            grid-template-columns: 1fr;
+        }
+
         header h1 {
             font-size: 32px;
         }
 
         nav a {
-            margin: 0 5px;
+            margin: 0 7px;
             font-size: 14px;
-        }
-
-        section {
-            margin: 35px auto;
         }
     }
 </style>
@@ -183,150 +199,179 @@
 <body>
 
 ```
-<!-- 首頁 -->
-<header id="home">
-    <h1>你好，我是一名高三學生</h1>
-    <p>歡迎來到我的個人介紹網站</p>
+<!-- 頁首 -->
+<header>
+    <h1>我的課外活動</h1>
+    <p>在課堂之外，探索興趣、累積經驗與成長</p>
 </header>
 
 <!-- 導覽列 -->
 <nav>
-    <a href="#about">關於我</a>
-    <a href="#skills">我的專長</a>
-    <a href="#activities">課外活動</a>
-    <a href="#future">未來目標</a>
-    <a href="#contact">聯絡我</a>
+    <a href="/">首頁</a>
+    <a href="#activities">活動介紹</a>
+    <a href="#experience">我的收穫</a>
 </nav>
 
-<!-- 關於我 -->
-<section id="about">
-    <h2>關於我</h2>
+<main>
 
-    <div class="card profile">
-
-        <!-- 如果有照片，可以把 photo.jpg 放在同一個資料夾 -->
-        <img src="photo.jpg" alt="我的照片" class="profile-img">
-
-        <h3>你的姓名</h3>
+    <!-- 活動介紹 -->
+    <section class="intro">
+        <h2>高中生活中的課外活動</h2>
 
         <p>
-            我目前是一名高三學生，即將完成高中階段的學習。
-            在高中三年裡，我除了努力學習課業之外，
-            也積極參與各種課外活動，希望能夠累積更多不同的經驗。
+            高中三年除了學習課業之外，我也參與了許多不同的
+            課外活動。透過這些活動，我認識了不同的朋友，
+            也學習到課本之外的重要能力。
         </p>
 
         <p>
-            我是一個喜歡學習新事物、願意接受挑戰的人。
-            面對問題時，我會嘗試自己找出解決方法，
-            也希望在未來持續提升自己的能力。
+            每一次活動都讓我有新的體驗，也讓我更加了解自己的
+            興趣與能力。
         </p>
+    </section>
+
+
+    <!-- 活動卡片 -->
+    <section id="activities">
+
+        <div class="activities">
+
+            <!-- 社團活動 -->
+            <div class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
+                    alt="學生團隊活動">
+
+                <div class="activity-content">
+
+                    <h3>🤝 社團活動</h3>
+
+                    <p>
+                        在高中期間，我參與學校社團活動，
+                        和同學一起規劃活動與完成任務。
+                    </p>
+
+                    <p>
+                        透過團隊合作，我學習到如何與不同個性
+                        的同學溝通，也提升了自己的責任感。
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- 專題製作 -->
+            <div class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                    alt="學生進行電腦專題">
+
+                <div class="activity-content">
+
+                    <h3>💻 專題製作</h3>
+
+                    <p>
+                        在學校專題活動中，我和同學一起討論主題，
+                        進行資料蒐集與實際製作。
+                    </p>
+
+                    <p>
+                        從一開始的想法，到最後完成作品，
+                        讓我了解到團隊合作與時間管理的重要性。
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- 校內活動 -->
+            <div class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
+                    alt="學生校園活動">
+
+                <div class="activity-content">
+
+                    <h3>🏫 校內活動</h3>
+
+                    <p>
+                        我也參加過學校舉辦的各種活動，
+                        包含班級活動、校慶以及其他校內活動。
+                    </p>
+
+                    <p>
+                        這些經驗讓我的高中生活更加充實，
+                        也留下許多值得回憶的時光。
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 我的收穫 -->
+    <section id="experience" class="experience">
+
+        <h2>🌱 我從活動中學到什麼？</h2>
+
+        <ul>
+
+            <li>
+                <strong>團隊合作：</strong>
+                學習與不同的人一起完成共同目標。
+            </li>
+
+            <li>
+                <strong>溝通能力：</strong>
+                學習表達自己的想法，也尊重其他人的意見。
+            </li>
+
+            <li>
+                <strong>時間管理：</strong>
+                在課業與活動之間安排自己的時間。
+            </li>
+
+            <li>
+                <strong>解決問題：</strong>
+                遇到問題時，嘗試找出不同的解決方法。
+            </li>
+
+            <li>
+                <strong>責任感：</strong>
+                完成自己負責的工作，並對團隊負責。
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- 回首頁 -->
+    <div class="back-home">
+        <a href="/">← 回到首頁</a>
     </div>
-</section>
 
-<!-- 專長 -->
-<section id="skills">
-    <h2>我的專長</h2>
+</main>
 
-    <div class="skills">
-
-        <div class="skill">
-            <h3>💻 電腦與程式</h3>
-            <p>HTML、CSS、Python，以及基本的網頁設計。</p>
-        </div>
-
-        <div class="skill">
-            <h3>🎨 設計</h3>
-            <p>喜歡設計網站與製作簡單的視覺內容。</p>
-        </div>
-
-        <div class="skill">
-            <h3>🤝 團隊合作</h3>
-            <p>能夠與同學合作完成活動與專題。</p>
-        </div>
-
-        <div class="skill">
-            <h3>📚 學習能力</h3>
-            <p>願意接觸新的知識與不同領域。</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- 課外活動 -->
-<section id="activities">
-    <h2>課外活動</h2>
-
-    <div class="card">
-
-        <div class="activity">
-            <h3>🏫 社團活動</h3>
-            <p>
-                參與學校社團，透過團體活動學習溝通、
-                合作以及時間管理。
-            </p>
-        </div>
-
-        <div class="activity">
-            <h3>💡 專題製作</h3>
-            <p>
-                曾參與學校專題，從發想、資料蒐集到最後成果展示，
-                學習如何將想法實際完成。
-            </p>
-        </div>
-
-        <div class="activity">
-            <h3>🎯 校內活動</h3>
-            <p>
-                參與學校各項活動，累積與不同同學合作的經驗。
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<!-- 未來目標 -->
-<section id="future">
-    <h2>未來目標</h2>
-
-    <div class="card future">
-        <h3>🚀 下一個階段</h3>
-
-        <p>
-            高中生活即將結束，我希望能夠進入自己有興趣的大學與科系，
-            繼續學習更多專業知識。
-        </p>
-
-        <p>
-            未來我希望能夠把自己在高中學到的知識，
-            與實際生活中的問題結合，創造出真正有價值的作品。
-        </p>
-    </div>
-</section>
-
-<!-- 聯絡方式 -->
-<section id="contact">
-    <h2>聯絡我</h2>
-
-    <div class="card contact">
-
-        <p>
-            如果你想認識我或了解我的作品，可以透過以下方式聯絡我。
-        </p>
-
-        <a href="mailto:your@email.com">📧 Email</a>
-
-        <a href="https://github.com/" target="_blank">
-            💻 GitHub
-        </a>
-
-    </div>
-</section>
 
 <!-- 頁尾 -->
 <footer>
-    <p>© 2026 我的個人網站 | 高三學生自我介紹</p>
+
+    <p>
+        © 2026 我的高中生活｜課外活動
+    </p>
+
 </footer>
 ```
 
 </body>
+
+</html>
+
 </html>
