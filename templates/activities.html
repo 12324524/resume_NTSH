@@ -1,47 +1,332 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask a Question</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+
+```
+<title>我的高中生活｜高三學生自我介紹</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Noto Sans TC", Arial, sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.8;
+    }
+
+    header {
+        background: linear-gradient(135deg, #4CAF50, #2e7d32);
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+    header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 20px;
+    }
+
+    nav {
+        background-color: white;
+        padding: 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #4CAF50;
+    }
+
+    section {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2e7d32;
+        font-size: 30px;
+    }
+
+    .card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 25px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .profile {
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 5px solid #4CAF50;
+    }
+
+    .profile h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .skill {
+        background-color: #f1f8e9;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .skill h3 {
+        color: #2e7d32;
+        margin-bottom: 10px;
+    }
+
+    .activity {
+        border-left: 5px solid #4CAF50;
+        padding-left: 20px;
+        margin-bottom: 25px;
+    }
+
+    .activity h3 {
+        color: #2e7d32;
+    }
+
+    .future {
+        text-align: center;
+        background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .contact a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+    .contact a:hover {
+        background-color: #2e7d32;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 32px;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
+
+        nav a {
+            margin: 0 5px;
+            font-size: 14px;
         }
+
         section {
-            margin: 20px;
+            margin: 35px auto;
         }
-        .form-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    }
+</style>
+```
+
 </head>
+
 <body>
-    <header>
-        <h1>課外活動</h1>
-    </header>
-    <section>
-        <div class="form-box">
-            <form action="/activities" method="post">
-                <label for="question">你的問題:</label><br>
-                <input type="text" id="question" name="question" value="{{ question }}"><br><br>
-                <label for="answer">答案:</label><br>
-                <input type="text" id="answer" name="answer" readonly value="{{ answer }}"><br><br>
-                <input type="submit" value="送出">
-                <input type="button" value="回首頁" onclick="window.location.href='/'">
-            </form>
+
+```
+<!-- 首頁 -->
+<header id="home">
+    <h1>你好，我是一名高三學生</h1>
+    <p>歡迎來到我的個人介紹網站</p>
+</header>
+
+<!-- 導覽列 -->
+<nav>
+    <a href="#about">關於我</a>
+    <a href="#skills">我的專長</a>
+    <a href="#activities">課外活動</a>
+    <a href="#future">未來目標</a>
+    <a href="#contact">聯絡我</a>
+</nav>
+
+<!-- 關於我 -->
+<section id="about">
+    <h2>關於我</h2>
+
+    <div class="card profile">
+
+        <!-- 如果有照片，可以把 photo.jpg 放在同一個資料夾 -->
+        <img src="photo.jpg" alt="我的照片" class="profile-img">
+
+        <h3>你的姓名</h3>
+
+        <p>
+            我目前是一名高三學生，即將完成高中階段的學習。
+            在高中三年裡，我除了努力學習課業之外，
+            也積極參與各種課外活動，希望能夠累積更多不同的經驗。
+        </p>
+
+        <p>
+            我是一個喜歡學習新事物、願意接受挑戰的人。
+            面對問題時，我會嘗試自己找出解決方法，
+            也希望在未來持續提升自己的能力。
+        </p>
+    </div>
+</section>
+
+<!-- 專長 -->
+<section id="skills">
+    <h2>我的專長</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>💻 電腦與程式</h3>
+            <p>HTML、CSS、Python，以及基本的網頁設計。</p>
         </div>
-    </section>
+
+        <div class="skill">
+            <h3>🎨 設計</h3>
+            <p>喜歡設計網站與製作簡單的視覺內容。</p>
+        </div>
+
+        <div class="skill">
+            <h3>🤝 團隊合作</h3>
+            <p>能夠與同學合作完成活動與專題。</p>
+        </div>
+
+        <div class="skill">
+            <h3>📚 學習能力</h3>
+            <p>願意接觸新的知識與不同領域。</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- 課外活動 -->
+<section id="activities">
+    <h2>課外活動</h2>
+
+    <div class="card">
+
+        <div class="activity">
+            <h3>🏫 社團活動</h3>
+            <p>
+                參與學校社團，透過團體活動學習溝通、
+                合作以及時間管理。
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>💡 專題製作</h3>
+            <p>
+                曾參與學校專題，從發想、資料蒐集到最後成果展示，
+                學習如何將想法實際完成。
+            </p>
+        </div>
+
+        <div class="activity">
+            <h3>🎯 校內活動</h3>
+            <p>
+                參與學校各項活動，累積與不同同學合作的經驗。
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- 未來目標 -->
+<section id="future">
+    <h2>未來目標</h2>
+
+    <div class="card future">
+        <h3>🚀 下一個階段</h3>
+
+        <p>
+            高中生活即將結束，我希望能夠進入自己有興趣的大學與科系，
+            繼續學習更多專業知識。
+        </p>
+
+        <p>
+            未來我希望能夠把自己在高中學到的知識，
+            與實際生活中的問題結合，創造出真正有價值的作品。
+        </p>
+    </div>
+</section>
+
+<!-- 聯絡方式 -->
+<section id="contact">
+    <h2>聯絡我</h2>
+
+    <div class="card contact">
+
+        <p>
+            如果你想認識我或了解我的作品，可以透過以下方式聯絡我。
+        </p>
+
+        <a href="mailto:your@email.com">📧 Email</a>
+
+        <a href="https://github.com/" target="_blank">
+            💻 GitHub
+        </a>
+
+    </div>
+</section>
+
+<!-- 頁尾 -->
+<footer>
+    <p>© 2026 我的個人網站 | 高三學生自我介紹</p>
+</footer>
+```
+
 </body>
 </html>
