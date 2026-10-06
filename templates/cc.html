@@ -1,9 +1,443 @@
-<!DOCTYPE html>
-<html>
-<head><title>貓咪大戰爭</title></head>
-<body>
-    <h1>紀錄貓咪大戰爭遊戲心得</h1>
-    <p>好玩遊戲。</p>
-    <a href="/">返回首頁</a>
-</body>
-</html>
+<!DOCTYPE html> <html lang="zh-Hant"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>貓咪大戰爭｜遊戲心得</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Microsoft JhengHei", Arial, sans-serif;
+        background: linear-gradient(135deg, #fff7d6, #ffe4b5);
+        color: #333;
+    }
+
+    /* 頂部 */
+    header {
+        background: linear-gradient(135deg, #ff9a3c, #ff6b35);
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+        font-size: 42px;
+        margin: 0 0 12px;
+    }
+
+    header p {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    /* 導覽列 */
+    nav {
+        background-color: #333;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 17px;
+    }
+
+    nav a:hover {
+        color: #ffd166;
+    }
+
+    /* 主要內容 */
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 18px;
+        padding: 30px;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+        color: #f06a28;
+        border-left: 6px solid #ff9a3c;
+        padding-left: 12px;
+    }
+
+    .card p {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    /* 遊戲特色 */
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .feature {
+        background: #fff8e8;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature .icon {
+        font-size: 45px;
+    }
+
+    .feature h3 {
+        color: #e85d04;
+    }
+
+    /* 心得區域 */
+    .experience {
+        background: linear-gradient(135deg, #fff3cd, #ffffff);
+    }
+
+    .experience strong {
+        color: #e85d04;
+    }
+
+    /* 技巧 */
+    .tips {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .tips li {
+        background-color: #fff7e6;
+        margin: 12px 0;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 5px solid #ff9a3c;
+        font-size: 17px;
+    }
+
+    /* 評分 */
+    .rating {
+        text-align: center;
+    }
+
+    .stars {
+        font-size: 38px;
+        color: #ffb703;
+        letter-spacing: 5px;
+    }
+
+    .score {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e85d04;
+    }
+
+    /* 按鈕 */
+    .button-area {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #ff7b00;
+        color: white;
+        text-decoration: none;
+        padding: 14px 30px;
+        border-radius: 30px;
+        font-size: 18px;
+        margin: 8px;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background-color: #e85d04;
+        transform: scale(1.05);
+    }
+
+    /* 頁尾 */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        margin-top: 40px;
+    }
+
+    footer p {
+        margin: 5px;
+    }
+
+    /* 手機版 */
+    @media (max-width: 768px) {
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 8px;
+        }
+
+        .container {
+            width: 94%;
+        }
+    }
+</style>
+
+</head> <body>
+<!-- 頁首 -->
+<header>
+    <h1>🐱 貓咪大戰爭 🐱</h1>
+    <p>我的遊戲心得與遊玩紀錄</p>
+</header>
+
+
+<!-- 導覽列 -->
+<nav>
+    <a href="/">首頁</a>
+    <a href="#intro">遊戲介紹</a>
+    <a href="#experience">遊玩心得</a>
+    <a href="#tips">遊玩技巧</a>
+    <a href="#rating">我的評分</a>
+</nav>
+
+
+<main class="container">
+
+    <!-- 遊戲介紹 -->
+    <section class="card" id="intro">
+
+        <h2>🎮 遊戲介紹</h2>
+
+        <p>
+            《貓咪大戰爭》是一款以可愛貓咪為主題的塔防類型遊戲。
+            玩家可以召喚各種不同能力的貓咪，組成自己的隊伍，
+            與敵人進行戰鬥。
+        </p>
+
+        <p>
+            遊戲中有許多不同種類的貓咪，每一隻貓咪都有自己的特色。
+            有些貓咪適合近距離攻擊，有些則適合遠距離支援，
+            因此玩家需要根據關卡的敵人來選擇適合的隊伍。
+        </p>
+
+    </section>
+
+
+    <!-- 遊戲特色 -->
+    <section class="card">
+
+        <h2>🌟 我覺得遊戲好玩的地方</h2>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="icon">🐱</div>
+                <h3>可愛角色</h3>
+                <p>
+                    遊戲裡有很多造型奇特又可愛的貓咪，
+                    有些甚至非常搞笑。
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">⚔️</div>
+                <h3>戰鬥刺激</h3>
+                <p>
+                    不同關卡需要不同的策略，
+                    打贏強大的敵人很有成就感。
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🧠</div>
+                <h3>需要策略</h3>
+                <p>
+                    不能只靠一直派貓咪，
+                    還需要思考出場順序與隊伍組合。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 遊玩心得 -->
+    <section class="card experience" id="experience">
+
+        <h2>📝 我的遊玩心得</h2>
+
+        <p>
+            我覺得《貓咪大戰爭》是一款
+            <strong>簡單又有趣</strong>的遊戲。
+            一開始玩時，我覺得遊戲操作非常容易，
+            只要選擇貓咪並派牠們出場就可以開始戰鬥。
+        </p>
+
+        <p>
+            不過，玩到後面的關卡之後，
+            我發現遊戲其實需要很多策略。
+            如果沒有選擇適合的貓咪，
+            就算一直派兵也不一定能夠獲勝。
+        </p>
+
+        <p>
+            我最喜歡的是看到自己培養的貓咪變得越來越強。
+            當一個原本打不過的關卡，
+            經過調整隊伍之後終於成功通關，
+            會讓我覺得非常有成就感。
+        </p>
+
+        <p>
+            整體來說，我覺得這是一款很適合休閒時遊玩的遊戲。
+            遊戲畫風很可愛，玩法也不會太複雜，
+            但是越深入遊玩，就越能發現其中的策略性。
+        </p>
+
+    </section>
+
+
+    <!-- 遊玩技巧 -->
+    <section class="card" id="tips">
+
+        <h2>💡 我的遊玩小技巧</h2>
+
+        <ul class="tips">
+
+            <li>
+                🐱 <strong>合理安排出場順序：</strong>
+                不要一開始就把所有強力角色全部派出去。
+            </li>
+
+            <li>
+                💰 <strong>注意金錢：</strong>
+                派貓咪需要花費金錢，要留意目前的資源。
+            </li>
+
+            <li>
+                🛡️ <strong>前排與後排搭配：</strong>
+                可以利用耐打的角色保護攻擊力較高的角色。
+            </li>
+
+            <li>
+                🔄 <strong>失敗後調整隊伍：</strong>
+                如果打不過關卡，可以嘗試更換不同的貓咪。
+            </li>
+
+            <li>
+                🧠 <strong>觀察敵人：</strong>
+                了解敵人的特性，再選擇適合的隊伍。
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- 喜歡的地方 -->
+    <section class="card">
+
+        <h2>❤️ 我最喜歡的地方</h2>
+
+        <p>
+            我最喜歡這款遊戲的地方是
+            <strong>角色設計和遊戲的趣味性</strong>。
+            有些貓咪的外型非常奇怪，
+            但是在戰鬥中卻有很重要的作用。
+        </p>
+
+        <p>
+            而且每次解鎖新的角色，
+            都會讓我想嘗試看看牠到底有什麼能力。
+            這也是讓我一直想繼續玩的原因之一。
+        </p>
+
+    </section>
+
+
+    <!-- 推薦原因 -->
+    <section class="card">
+
+        <h2>👍 推薦這款遊戲的原因</h2>
+
+        <p>
+            如果你喜歡可愛的角色、塔防遊戲或策略遊戲，
+            我覺得可以試試看《貓咪大戰爭》。
+        </p>
+
+        <p>
+            它的操作方式不難，但是遊戲內容具有一定的策略性。
+            對我來說，最大的樂趣就是慢慢培養角色，
+            然後挑戰之前打不過的關卡。
+        </p>
+
+    </section>
+
+
+    <!-- 評分 -->
+    <section class="card rating" id="rating">
+
+        <h2>⭐ 我的遊戲評分</h2>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p class="score">
+            5 / 5 分
+        </p>
+
+        <p>
+            好玩、可愛、有策略性，而且很有成就感！
+        </p>
+
+    </section>
+
+
+    <!-- 按鈕 -->
+    <div class="button-area">
+
+        <a class="button" href="/">
+            🏠 返回首頁
+        </a>
+
+        <a class="button" href="#intro">
+            ⬆️ 回到上方
+        </a>
+
+    </div>
+
+</main>
+
+
+<!-- 頁尾 -->
+<footer>
+
+    <p>🐱 貓咪大戰爭遊戲心得</p>
+
+    <p>這是我的遊戲紀錄與心得分享</p>
+
+</footer>
+
+</body> </html>
