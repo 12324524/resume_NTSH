@@ -1,24 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask a Question</title>
+    <title>日文字典 Ask2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
         }
+
         header {
             background-color: #4CAF50;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
         section {
             margin: 20px;
         }
+
         .form-box {
             background-color: white;
             padding: 20px;
@@ -29,20 +33,25 @@
 </head>
 <body>
     <header>
-        <h1>字典</h1>
+        <h1>日文字典</h1>
     </header>
+
     <section>
         <div class="form-box">
-            <form action="/ask1" method="post">
-                <label for="question">中文:</label><br>
-                <input type="text" id="question1" name="question1" value="{{ question1 }}"><br><br>
-                <label for="answer">日文:</label><br>
-                <input type="text" id="answer1" name="answer1" readonly value="{{ answer1 }}"><br><br>
+            <form action="/ask2" method="post">
+                <label for="question2">中文:</label><br>
+                <input type="text" id="question2" name="question2"
+                       value="{{ question2 }}"><br><br>
+
+                <label for="answer2">日文:</label><br>
+                <input type="text" id="answer2" name="answer2"
+                       readonly value="{{ answer2 }}"><br><br>
+
                 <input type="submit" value="送出">
-                <input type="button" value="回首頁" onclick="window.location.href='/'">
+                <input type="button" value="回首頁"
+                       onclick="window.location.href='/'">
             </form>
         </div>
     </section>
 </body>
 </html>
-
