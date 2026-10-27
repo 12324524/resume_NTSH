@@ -40,28 +40,28 @@ def competition():
 # =========================
 # 中韓翻譯
 # =========================
-@app.route('/ask', methods=['GET', 'POST'])
+@app.route('/ask2', methods=['GET', 'POST'])
 def ask():
 
     if request.method == 'POST':
 
-        question = request.form.get('question', '').strip()
+        question1 = request.form.get('question', '').strip()
 
         # 從題庫查詢
-        answer = zh_ko_dict.get(
+        answer1 = zh_ko_dict.get(
             question,
             "抱歉，我目前沒有這個詞的韓文對應。"
         )
 
         return render_template(
-            'ask.html',
-            question=question,
-            answer=answer
+            'ask2.html',
+            question=question1,
+            answer=answer1
         )
 
     # GET
     return render_template(
-        'ask.html',
+        'ask2.html',
         question="",
         answer=""
     )
