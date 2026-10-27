@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日文字典 Ask2</title>
+    <title>Ask2 日文字典</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #FFF9C4; /* 淺黃色背景 */
             color: #333;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: #FBC02D; /* 黃色標題 */
             color: white;
             padding: 10px;
             text-align: center;
@@ -39,13 +39,13 @@
     <section>
         <div class="form-box">
             <form action="/ask2" method="post">
-                <label for="question2">中文:</label><br>
-                <input type="text" id="question2" name="question2"
-                       value="{{ question2 }}"><br><br>
+                <label for="question">中文:</label><br>
+                <input type="text" id="question" name="question"
+                       value="{{ question }}"><br><br>
 
-                <label for="answer2">日文:</label><br>
-                <input type="text" id="answer2" name="answer2"
-                       readonly value="{{ answer2 }}"><br><br>
+                <label for="answer">日文:</label><br>
+                <input type="text" id="answer" name="answer"
+                       readonly value="{{ answer }}"><br><br>
 
                 <input type="submit" value="送出">
                 <input type="button" value="回首頁"
