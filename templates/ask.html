@@ -7,6 +7,16 @@
     <title>中韓中日翻譯系統</title>
 
     <style>
+        .back-button {
+    margin-top: 15px;
+    background: #eeeeee;
+    color: #555;
+}
+
+.back-button:hover {
+    background: #dddddd;
+    box-shadow: none;
+}
         * {
             box-sizing: border-box;
             margin: 0;
@@ -201,6 +211,13 @@
         <button type="submit">✨ 開始翻譯</button>
 
     </form>
+
+    <button
+    type="button"
+    class="back-button"
+    onclick="history.back()">
+    ⬅ 回上頁
+</button>
 
     {% if answer %}
     <div class="result">
