@@ -96,7 +96,9 @@ def ask():
         answer=answer,
         language=language
     )
-
+@app.route('/cc')
+def cc():
+    return render_template('cc.html')
 
 # =========================
 # 啟動 Flask
