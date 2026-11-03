@@ -99,6 +99,10 @@ def ask():
 @app.route('/cc')
 def cc():
     return render_template('cc.html')
+    @app.route('/ai')
+def cc():
+    return render_template('ai.html')
+
 
 # =========================
 # 啟動 Flask
