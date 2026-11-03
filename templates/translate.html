@@ -1,1 +1,69 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>中文翻譯系統</title>
+</head>
 
+<body>
+
+    <h1>中文翻譯系統</h1>
+
+    <form method="POST">
+
+        <!-- 選擇翻譯語言 -->
+        <label for="language">選擇翻譯語言：</label>
+
+        <select name="language" id="language" required>
+
+            <option value="">請選擇語言</option>
+
+            <option value="ko"
+                {% if language == 'ko' %}selected{% endif %}>
+                韓文
+            </option>
+
+            <option value="ja"
+                {% if language == 'ja' %}selected{% endif %}>
+                日文
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <!-- 輸入中文 -->
+        <label for="question">請輸入中文：</label>
+
+        <input type="text"
+               name="question"
+               id="question"
+               value="{{ question }}"
+               placeholder="例如：你好"
+               required>
+
+        <br><br>
+
+        <button type="submit">開始翻譯</button>
+
+    </form>
+
+    <!-- 顯示翻譯結果 -->
+    {% if answer %}
+
+        <h2>翻譯結果</h2>
+
+        <p>中文：{{ question }}</p>
+
+        {% if language == 'ko' %}
+            <p>韓文：{{ answer }}</p>
+        {% elif language == 'ja' %}
+            <p>日文：{{ answer }}</p>
+        {% endif %}
+
+    {% endif %}
+
+</body>
+</html>
+```
