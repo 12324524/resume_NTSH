@@ -1,57 +1,227 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
-<meta charset="UTF-8">
-<title>中韓中日翻譯</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中韓中日翻譯系統</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            background: #fafafa;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 22px;
+            background: #f5f7ff;
+            border-left: 5px solid #667eea;
+            border-radius: 12px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            margin: 10px 0;
+            color: #444;
+            line-height: 1.7;
+            word-break: break-word;
+        }
+
+        .translation {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>中韓中日翻譯系統</h1>
+<div class="container">
 
-<form method="POST" action="/ask">
+    <div class="header">
+        <div class="icon">🌏</div>
+        <h1>中韓中日翻譯系統</h1>
+        <p class="subtitle">簡單快速，探索不同語言</p>
+    </div>
 
-<!-- 選擇翻譯語言 -->
-<label>選擇語言：</label>
+    <form method="POST" action="/ask">
 
-<select name="language">
+        <div class="form-group">
+            <label for="language">🌐 選擇翻譯語言</label>
 
-<option value="ko">韓文</option>
+            <select name="language" id="language">
+                <option value="ko" {% if language == 'ko' %}selected{% endif %}>
+                    🇰🇷 韓文
+                </option>
 
-<option value="ja">日文</option>
+                <option value="ja" {% if language == 'ja' %}selected{% endif %}>
+                    🇯🇵 日文
+                </option>
+            </select>
+        </div>
 
-</select>
+        <div class="form-group">
+            <label for="question">✏️ 請輸入中文</label>
 
-<br><br>
+            <input
+                type="text"
+                name="question"
+                id="question"
+                placeholder="例如：你好、謝謝、我愛你"
+                value="{{ question }}"
+                required
+            >
+        </div>
 
-<!-- 輸入中文 -->
-<label>請輸入中文：</label>
+        <button type="submit">✨ 開始翻譯</button>
 
-<input type="text"
-name="question"
-value="{{ question }}"
-required>
+    </form>
 
-<br><br>
+    {% if answer %}
+    <div class="result">
+        <h2>📖 翻譯結果</h2>
 
-<button type="submit">
-翻譯
-</button>
+        <p>中文：{{ question }}</p>
 
-</form>
+        <p>
+            翻譯：
+            <span class="translation">{{ answer }}</span>
+        </p>
+    </div>
+    {% endif %}
 
+    <div class="footer">
+        中韓中日翻譯系統｜Powered by Flask
+    </div>
 
-{% if answer %}
-
-<h2>翻譯結果</h2>
-
-<p>中文：{{ question }}</p>
-
-<p>翻譯：{{ answer }}</p>
-
-{% endif %}
+</div>
 
 </body>
-
 </html>
+```
