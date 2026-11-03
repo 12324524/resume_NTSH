@@ -40,17 +40,49 @@ def competition():
 # 使用 dict 作為中韓翻譯的題庫
 @app.route('/ask', methods=['GET', 'POST'])
 def ask():
-    if request.method == 'POST':
-        # 2. 讀取學生的問題###^#@#Q%#@
-        question1 = request.form.get('question', '').strip()
-        # 3. 查詢題庫的對應答案
-        # answer1 = zh_ko_dict.get(question, "抱歉，我目前沒有這個詞的韓文對應。")
+   # 中韓、中日翻譯共用路由
+@app.route('/ask', methods=['GET', 'POST'])
 
-        answer1 = zh_ko_dict[question1]
-        # 4. 回傳答案給學生
-        return render_template('ask.html', question=question1, answer=answer1)
-    # GET 時給空白欄位
-    return render_template('ask.html', question="", answer="")
+if request.method == 'POST':
+
+# 讀取學生輸入的問題
+question = request.form.get('question', '').strip()
+
+# 讀取選擇的語言
+language = request.form.get('language', 'ko')
+
+# 根據語言選擇題庫
+if language == 'ko':
+dictionary = zh_ko_dict
+language_name = "韓文"
+template_name = "ask.html"
+
+elif language == 'jp':
+dictionary = zh_jp_dict
+language_name = "日文"
+template_name = "ask.html"
+
+# 查詢答案
+answer = dictionary.get(
+question,
+f"抱歉，我目前沒有這個詞的{language_name}對應。"
+)
+
+# 回傳答案
+return render_template(
+template_name,
+question=question,
+answer=answer,
+language=language
+)
+
+# GET 時給空白欄位
+return render_template(
+'ask.html',
+question="",
+answer="",
+language="ko"
+)
 
 # 使用 dict 作為中日翻譯的題庫
 @app.route('/ask2', methods=['GET', 'POST'])
