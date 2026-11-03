@@ -37,8 +37,7 @@ def index():
 def competition():
     return render_template('competition.html')
 
-# 使用 dict 作為中韓翻譯的題庫
-@app.route('/ask', methods=['GET', 'POST'])
+
 def ask():
    # 中韓、中日翻譯共用路由
 @app.route('/ask', methods=['GET', 'POST'])
