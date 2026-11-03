@@ -57,7 +57,7 @@ dictionary = zh_ko_dict
 language_name = "韓文"
 template_name = "ask.html"
 
-elif language == 'jp':
+elif language == 'ja':
 dictionary = zh_jp_dict
 language_name = "日文"
 template_name = "ask.html"
