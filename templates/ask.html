@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -7,16 +8,6 @@
     <title>中韓中日翻譯系統</title>
 
     <style>
-        .back-button {
-    margin-top: 15px;
-    background: #eeeeee;
-    color: #555;
-}
-
-.back-button:hover {
-    background: #dddddd;
-    box-shadow: none;
-}
         * {
             box-sizing: border-box;
             margin: 0;
@@ -111,6 +102,27 @@
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
 
+        /* 返回首頁按鈕 */
+        .back-button {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            background: #eeeeee;
+            color: #555;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: #dddddd;
+            transform: translateY(-2px);
+        }
+
         .result {
             margin-top: 30px;
             padding: 22px;
@@ -151,6 +163,7 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -212,9 +225,10 @@
 
     </form>
 
-    <a class="button" href="/">
-            🏠 返回首頁
-        </a>
+    <!-- 返回首頁按鈕 -->
+    <a href="/" class="back-button">
+        🏠 返回首頁
+    </a>
 
     {% if answer %}
     <div class="result">
